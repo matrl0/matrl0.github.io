@@ -1,0 +1,73 @@
+const audioCtx = new AudioContext();
+
+var oscillator1;
+var oscillator2;
+var oscillator3;
+
+const checkbox1 = document.getElementById("checkbox1");
+const number1 = document.getElementById("number1");
+const checkbox2 = document.getElementById("checkbox2");
+const number2 = document.getElementById("number2");
+const checkbox3 = document.getElementById("checkbox3");
+const number3 = document.getElementById("number3");
+
+checkbox1.onchange = function() {
+    if (checkbox1.checked) {
+        oscillator1 = audioCtx.createOscillator();
+        oscillator1.frequency.value = number1.value;
+        oscillator1.connect(audioCtx.destination);
+        oscillator1.start();
+    } else {
+        if (oscillator1 != null) {
+            oscillator1.stop();
+            oscillator1 = null;
+        }
+    }
+}
+
+number1.onchange = function() {
+    if (oscillator1 != null) {
+        oscillator1.frequency.value = number1.value;
+    }
+}
+
+
+checkbox2.onchange = function() {
+    if (checkbox2.checked) {
+        oscillator2 = audioCtx.createOscillator();
+        oscillator2.frequency.value = number2.value;
+        oscillator2.connect(audioCtx.destination);
+        oscillator2.start();
+    } else {
+        if (oscillator2 != null) {
+            oscillator2.stop();
+            oscillator2 = null;
+        }
+    }
+}
+
+number2.onchange = function() {
+    if (oscillator2 != null) {
+        oscillator2.frequency.value = number2.value;
+    }
+}
+
+checkbox3.onchange = function() {
+    if (checkbox3.checked) {
+        oscillator3 = audioCtx.createOscillator();
+        oscillator3.frequency.value = number3.value;
+        oscillator3.connect(audioCtx.destination);
+        oscillator3.start();
+    } else {
+        if (oscillator3 != null) {
+            oscillator3.stop();
+            oscillator3 = null;
+        }
+    }
+}
+
+number3.onchange = function() {
+    if (oscillator3 != null) {
+        oscillator3.frequency.value = number3.value;
+    }
+}
